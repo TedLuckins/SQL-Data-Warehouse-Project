@@ -1,10 +1,16 @@
--- Creates a Database and Schemas
+/*
+Creates a Database and Schemas
+Script Purpose: 
+	Script Checks for existing database with the name 'DataWarehouse', if this data base exist already it will be dropped and a new database will replace it, if not found it will create a new database.
+	The New database will contain 3 schemas: 'bronze', 'silver' and 'gold'.
 
+===============================================================================
+WARNING! This script will drop any pre-existing database named 'DataWarehouse'
+===============================================================================
+*/
 USE Master
 GO
--- ===================================================
--- WARNING! Drops any Database called 'DataWarehouse'
--- ===================================================
+
 IF EXISTS (SELECT 1 FROM sys.Databases WHERE name = 'DataWarehouse')
 BEGIN
 	ALTER DATABASE DataWarehouse SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
