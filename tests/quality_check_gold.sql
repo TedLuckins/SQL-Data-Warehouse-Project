@@ -7,6 +7,7 @@ Script Prupose:
 	their accuracy and consistency.
 
 Usage Notes:
+	- Run these checks after loading silver layer tables.
 	- Investigste and resolve discepensies found during the checks.
 =============================================================================
 */
