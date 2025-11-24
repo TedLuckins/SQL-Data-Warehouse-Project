@@ -1,8 +1,15 @@
--- ==================================================
--- Quality Checks
--- ==================================================
+/*
+=============================================================================
+Quality Checks
+=============================================================================
+Script Prupose:
+	This script executes quality checks for gold layer views to validate 
+	their accuracy and consistency.
 
-
+Usage Notes:
+	- Investigste and resolve discepensies found during the checks.
+=============================================================================
+*/
 --------------------------------------
 -- Check For: gold.dim_customers
 --------------------------------------
