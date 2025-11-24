@@ -6,16 +6,22 @@ Script purpose:
   This script creates views in the 'gold' layer in the data warehouse.
   The Gold layer represents the final dimension and facts tables (using Star Schema)
 
-  The views are transformaed from multiple 'silver' layer tables to ensure clean 
-  business level datasets.
+  The views are transformaed from 'silver' layer tables to ensure clean 
+  business standard datasets.
 
 Usage:
+	- Running this script will re-define the DDl structure of 'gold' Views
 	- These views can be queried for reporting and analytics
 =================================================================================
 */
 
 
-
+-- =============================================================================
+-- Create Dimension: gold.dim_customers
+-- =============================================================================
+IF OBJECT_ID ('gold.dim_customers', 'V') IS NOT NULL
+	DROP View gold.dim_customers;
+GO
 
 CREATE VIEW gold.dim_customers AS
 SELECT
@@ -36,7 +42,15 @@ LEFT JOIN silver.erp_cust_az12 ca
 ON		  ci.cst_key = ca.cid
 LEFT JOIN silver.erp_loc_a101 la 
 ON		  ci.cst_key = la.cid;
+GO
 
+
+-- =============================================================================
+-- Create Dimension: gold.dim_products
+-- =============================================================================
+IF OBJECT_ID ('gold.dim_products', 'V') IS NOT NULL
+	DROP View gold.dim_products;
+GO
 
 CREATE VIEW gold.dim_products AS
 SELECT
@@ -55,9 +69,15 @@ FROM  silver.crm_prd_info pn
 LEFT JOIN silver.erp_px_cat_g1v2 pc
 ON		  pn.cat_id = pc.id  
 WHERE prd_end_dt IS NULL -- Filter out al historical data;
+GO
 
 
-
+-- =============================================================================
+-- Create Dimension: gold.fact_sales
+-- =============================================================================
+IF OBJECT_ID ('gold.fact_sales', 'V') IS NOT NULL
+	DROP View gold.fact_sales;
+GO
 
 CREATE VIEW gold.fact_sales AS
 SELECT
