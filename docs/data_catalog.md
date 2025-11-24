@@ -1,12 +1,12 @@
 # Data Catalog for Gold Layer
 
 ## Overview
-The Gold Layer is the business-level data representation, structured to support analytical and reporting use cases. It consists of **dimension tables** and **fact tables** for specific business metrics.
+The gold layer holds business-level data, structured for analytics and reports. It contains dimension tables for qualitative data and fact tables for quantitative business data.
 
 ---
 
 ### 1. **gold.dim_customers**
-- **Purpose:** Stores customer details enriched with demographic and geographic data.
+- **Purpose:** Stroes customer information such as as demographic and geographic data
 - **Columns:**
 
 | Column Name      | Data Type     | Description                                                                                   |
@@ -25,7 +25,7 @@ The Gold Layer is the business-level data representation, structured to support 
 ---
 
 ### 2. **gold.dim_products**
-- **Purpose:** Provides information about the products and their attributes.
+- **Purpose:** Stores product information and their attributes.
 - **Columns:**
 
 | Column Name         | Data Type     | Description                                                                                   |
